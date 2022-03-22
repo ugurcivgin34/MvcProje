@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace EntityLayer.Concrete
 {
     public class Writer
-    {
-        public int WriterID { get; set; }
+    {//Yazar
+        public int WriterId { get; set; }
         public string WriterName { get; set; }
         public string WriterSurname { get; set; }
         public string WriterEmail { get; set; }
+        public string Password { get; set; }
+        public ICollection<Content> Contents { get; set; }
 
     }
 }

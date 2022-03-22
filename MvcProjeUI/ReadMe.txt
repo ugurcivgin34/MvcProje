@@ -26,3 +26,10 @@ Oluşan Layout Page a Body tagı içinde istediğimiz div içerisine  @renderBOd
    4)Content
    5)About()
    6)Contaxt()
+
+İlişki Oluşturma
+-------------
+Bire çok ilişkide bir olan tarafa Koleksion ekliyoruz.
+        public ICollection<Heading> Headings { get; set; }
+Çok tarafına bağlanılacak olan tablonun clası ve sutunu eklenir
+        public virtual Category Category { get; set; }
