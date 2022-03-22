@@ -33,3 +33,6 @@ Bire çok ilişkide bir olan tarafa Koleksion ekliyoruz.
         public ICollection<Heading> Headings { get; set; }
 Çok tarafına bağlanılacak olan tablonun clası ve sutunu eklenir
         public virtual Category Category { get; set; }
+
+
+EntityLayer ın içindeki referance a nuget packacge den entityframework u indirdik.(6.4.4)
