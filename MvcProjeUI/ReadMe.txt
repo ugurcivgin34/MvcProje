@@ -36,3 +36,6 @@ Bire çok ilişkide bir olan tarafa Koleksion ekliyoruz.
 
 
 EntityLayer ın içindeki referance a nuget packacge den entityframework u indirdik.(6.4.4)
+
+Migrations Ekleme İşlemi
+View -Other Windows Package Manager Console tıklıyoruz

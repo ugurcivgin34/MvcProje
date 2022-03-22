@@ -11,7 +11,11 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int AboutId { get; set; }
+
+        [StringLength(100)] //BUrda tanımlama yapmazsan veritabanı kısmında nvarcharmax olarak tanımlanır
         public string AboutDetails { get; set; }
+
+        [StringLength(100)]
         public string Image { get; set; }
     }
 }
