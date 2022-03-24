@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Abstarct;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Heading
+    public class Heading: IEntity
     {
         [Key]
         public int HeadingId { get; set; }
         public int CategoryId { get; set; } // Bağlayacağımız sutunu ekledik
         public int WriterId { get; set; }
+
 
         [StringLength(50)]
         public string HeadingName { get; set; }
