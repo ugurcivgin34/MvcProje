@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model List<Writer>
+
+@{
+    ViewBag.Title = "GetWriterList";
+}
+
+<h2>Writer Listeleme</h2>
+
+<table class="table table-hover">
+    <tr>
+        <td>Writer Id</td>
+        <td>Writer Adı</td>
+        <td>Writer Soyadı</td>
+        <td>Writer Email</td>
+        <td>Writer Password</td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.WriterId</td>
+    <td>@item.WriterName</td>
+    <td>@item.WriterSurname</td>
+    <td>@item.WriterEmail</td>
+    <td>@item.Password</td>
+
+
+</tr>
+    }
+</table>
+
+<a href="/Writer/AddWriter">Yeni Yazar</a>
+
