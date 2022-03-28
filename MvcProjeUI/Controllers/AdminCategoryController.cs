@@ -54,9 +54,9 @@ namespace MvcProjeUI.Controllers
             
         }
 
-        public ActionResult DeleteCategory(int categoryID)
+        public ActionResult DeleteCategory(int id)
         {
-            var cetegoryValue = cm.GetById(categoryID);
+            var cetegoryValue = cm.GetById(id);
             cm.Delete(cetegoryValue);
             return RedirectToAction("GetCategoryList");
         }
