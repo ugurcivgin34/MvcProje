@@ -60,5 +60,19 @@ namespace MvcProjeUI.Controllers
             cm.Delete(cetegoryValue);
             return RedirectToAction("GetCategoryList");
         }
+
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryValues = cm.GetById(id);
+            return View(categoryValues);
+        }
+
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            cm.CategoryUpdate(category);
+            return RedirectToAction("GetCategoryList");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,31 +11,14 @@ namespace MvcProjeUI.Controllers
 {
     public class WriterController : Controller
     {
+        WriterManager wm = new WriterManager(new EfWriterDal());
+
         // GET: Writer
         public ActionResult Index()
         {
-            return View();
-        }
-
-        WriterManager wm = new WriterManager();
-        public ActionResult GetWriterList()
-        {
-            var writerValues = wm.GetAll();
-
+            var writerValues = wm.GetList();
             return View(writerValues);
         }
 
-        [HttpGet]//Sayfa ilk yüklendiğinde alttaki metod çalışacak
-        public ActionResult AddWriter()
-        {
-            return View();
-        }
-
-        [HttpPost]//Butona tıklandığında alttaki metod çalışacak
-        public ActionResult AddWriter(Writer writer)
-        {
-            wm.WriterAddBL(writer);
-            return RedirectToAction("GetWriterList");
-        }
     }
 }

@@ -1,21 +1,22 @@
 ﻿@using EntityLayer.Concrete
 @model List<Writer>
+@{ ViewBag.Title = "GetWriterList";
+   Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-@{
-    ViewBag.Title = "GetWriterList";
-}
+<h2>Yazar Listesi</h2>
 
-<h2>Writer Listeleme</h2>
 
 <table class="table table-hover">
     <tr>
-        <td>Writer Id</td>
-        <td>Writer Adı</td>
-        <td>Writer Soyadı</td>
-        <td>Writer Email</td>
-        <td>Writer Password</td>
+        <td>Yazar Id</td>
+        <td>Yazar Adı </td>
+        <td>Yazar Soyadı</td>
+        <td>Yazar Mail Adresi</td>
+        <td>Yazar Şifresi</td>
+
 
     </tr>
+
     @foreach (var item in Model)
     {
 <tr>
@@ -23,12 +24,9 @@
     <td>@item.WriterName</td>
     <td>@item.WriterSurname</td>
     <td>@item.WriterEmail</td>
-    <td>@item.Password</td>
+    <td>@item.WriterPassword</td>
+</tr>}
 
 
-</tr>
-    }
 </table>
-
 <a href="/Writer/AddWriter">Yeni Yazar</a>
-
