@@ -11,9 +11,9 @@ namespace EntityLayer.Concrete
     public class Heading: IEntity
     {
         [Key]
-        public int HeadingId { get; set; }
-        public int CategoryId { get; set; } // Bağlayacağımız sutunu ekledik
-        public int WriterId { get; set; }
+        public int HeadingID { get; set; }
+        public int CategoryID { get; set; } // Bağlayacağımız sutunu ekledik
+        public int WriterID { get; set; }
 
 
         [StringLength(50)]

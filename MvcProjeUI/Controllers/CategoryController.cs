@@ -27,12 +27,14 @@ namespace MvcProjeUI.Controllers
             return View(categoryValues);
         }
 
+        
         [HttpGet]//Sayfa ilk yüklendiğinde alttaki metod çalışacak
         public ActionResult AddCategory()
         {
-            return View();
+            return View(); //bu sayfayı gerir döndürür
         }
 
+        //Ben sayfamda bir butona tıkladığımda sayfada birşey post edildiği zaman aşağıdaki metod çalışacak
         [HttpPost]//Butona tıklandığında alttaki metod çalışacak
         public ActionResult AddCategory(Category category)
         {
