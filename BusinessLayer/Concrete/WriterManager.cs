@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public Writer GetById(int id)
         {
-            return _writerDal.Get(w => w.WriterId == id);
+            return _writerDal.Get(w => w.WriterID == id);
         }
 
         public List<Writer> GetList()

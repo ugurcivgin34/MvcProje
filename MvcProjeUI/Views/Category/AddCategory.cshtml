@@ -12,7 +12,7 @@
     @Html.ValidationMessageFor(c => c.CategoryName)
     <br />
     @Html.Label("Açıklamayı yazınız")
-    @Html.TextAreaFor(c => c.CategoryDescription, new { @class = "form-group" })
+    @Html.TextBoxFor(c => c.CategoryDescription, new { @class = "form-group" })
     @Html.ValidationMessageFor(c => c.CategoryDescription)
     <br />
     <button>Kaydet</button>
