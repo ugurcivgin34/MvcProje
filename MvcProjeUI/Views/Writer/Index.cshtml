@@ -50,7 +50,7 @@
         <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
             <div class="card bg-light">
                 <div class="card-header text-muted border-bottom-0">
-                    Digital Strategist
+                    @item.WriterTitle
                 </div>
                 <div class="card-body pt-0">
                     <div class="row">
@@ -58,7 +58,7 @@
                             <h2 class="lead"><b>@item.WriterName @item.WriterSurname</b></h2>
                             <p class="text-muted text-sm"><b>Hakkımda : </b>@item.WriterAbout</p>
                             <ul class="ml-4 mb-0 fa-ul text-muted">
-                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                         
                                 <li class="small"><span class="fa-li"><i class="fas fa-lg fa-mail-bulk"></i></span> E-mail:@item.WriterEmail</li>
                             </ul>
                         </div>
@@ -72,8 +72,8 @@
                         <a href="#" class="btn btn-sm bg-teal">
                             <i class="fas fa-comments">Yazarın Başlıkları</i>
                         </a>
-                        <a href="#" class="btn btn-sm btn-primary">
-                            <i class="fas fa-user">Profili Düzenle</i> View Profile
+                        <a href="/Writer/EditWriter/@item.WriterID" class="btn btn-sm btn-primary">
+                            <i class="fas fa-user">Profili Düzenle</i> 
                         </a>
                     </div>
                 </div>

@@ -11,9 +11,11 @@
 {
     <div class="form-group">
         @Html.Label("Kategori ID", new { @class = "form-control"})
-        @Html.TextAreaFor(x => x.CategoryId)
+        @Html.TextBoxFor(x => x.CategoryID)
+        <br />
         @Html.Label("Kategori Adı",new { @class = "form-control"})
         @Html.TextAreaFor(x => x.CategoryName)
+        <br />
         @Html.Label("Kategori Açıklaması",new { @class ="form-control"})
         @Html.TextAreaFor(x => x.CategoryDescription)
         <br />

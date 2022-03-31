@@ -135,7 +135,9 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IstatisticController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2272,7 +2274,6 @@
     <Content Include="Views\Home\DL.cshtml" />
     <Content Include="Views\Category\GetCategoryList.cshtml" />
     <Content Include="Views\Category\AddCategory.cshtml" />
-    <Content Include="Views\Writer\AddWriter.cshtml" />
     <Content Include="Views\Contact\GetContactList.cshtml" />
     <Content Include="Views\Contact\AddContact.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
@@ -2281,7 +2282,10 @@
     <Content Include="Views\AdminCategory\GetCategoryList.cshtml" />
     <Content Include="Views\AdminCategory\EditCategory.cshtml" />
     <Content Include="Views\Writer\Index.cshtml" />
-    <Content Include="Views\Writer\GetWriterList.cshtml" />
+    <Content Include="Views\Istatistic\Index.cshtml" />
+    <Content Include="Views\Writer\AddWriter.cshtml" />
+    <Content Include="Views\Writer\EditWriter.cshtml" />
+    <Content Include="Views\Heading\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

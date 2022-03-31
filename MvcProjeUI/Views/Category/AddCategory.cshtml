@@ -8,11 +8,11 @@
  {
 <div class="form-group">
     @Html.Label("Kategori Adı")
-    @Html.TextBoxFor(c => c.CategoryName, new {@class="form-group" })
+    @Html.TextBoxFor(c => c.CategoryName, new {@class="form-control" })
     @Html.ValidationMessageFor(c => c.CategoryName)
     <br />
     @Html.Label("Açıklamayı yazınız")
-    @Html.TextBoxFor(c => c.CategoryDescription, new { @class = "form-group" })
+    @Html.TextAreaFor(c => c.CategoryDescription, new { @class = "form-control" })
     @Html.ValidationMessageFor(c => c.CategoryDescription)
     <br />
     <button>Kaydet</button>

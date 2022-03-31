@@ -13,13 +13,14 @@ namespace MvcProjeUI.Controllers
 {
     public class AdminCategoryController : Controller
     {
+        CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        CategoryValidator categoryValidator = new CategoryValidator();
         // GET: AdminCategory
         public ActionResult Index()
         {
             return View();
         }
 
-        CategoryManager cm = new CategoryManager(new EfCategoryDal());
         public ActionResult GetCategoryList()
         {
             var categoryValues = cm.List();
@@ -36,7 +37,7 @@ namespace MvcProjeUI.Controllers
         [HttpPost]//Butona tıklandığında alttaki metod çalışacak
         public ActionResult AddCategory(Category category)
         {
-            CategoryValidator categoryValidator = new CategoryValidator();
+          
             ValidationResult results = categoryValidator.Validate(category);
             if (results.IsValid) //Geçerli ise
             {
@@ -54,6 +55,7 @@ namespace MvcProjeUI.Controllers
             
         }
 
+       
         public ActionResult DeleteCategory(int id)
         {
             var cetegoryValue = cm.GetById(id);
