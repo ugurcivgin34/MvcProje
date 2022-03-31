@@ -18,16 +18,12 @@ namespace MvcProjeUI.Controllers
         // GET: AdminCategory
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult GetCategoryList()
-        {
             var categoryValues = cm.List();
 
             return View(categoryValues);
         }
 
+    
         [HttpGet]//Sayfa ilk yüklendiğinde alttaki metod çalışacak
         public ActionResult AddCategory()
         {

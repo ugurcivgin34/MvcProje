@@ -18,12 +18,12 @@ namespace BusinessLayer.Concrete
             _headingdal = headingdal;
         }
 
-        public void CategoryAddBL(Heading heading)
+        public void HeadingAddBL(Heading heading)
         {
             _headingdal.Insert(heading);
         }
 
-        public void CategoryUpdate(Heading heading)
+        public void HeadingUpdate(Heading heading)
         {
             _headingdal.Update(heading);
         }
