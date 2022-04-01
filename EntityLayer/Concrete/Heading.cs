@@ -15,6 +15,8 @@ namespace EntityLayer.Concrete
         public int CategoryID { get; set; } // Bağlayacağımız sutunu ekledik
         public int WriterID { get; set; }
 
+        public bool HeadingStatus { get; set; }
+
 
         [StringLength(50)]
         public string HeadingName { get; set; }

@@ -30,12 +30,14 @@ namespace MvcProjeUI.Controllers
                                                       Value = x.CategoryID.ToString()
                                                   }
                                                 ).ToList();
-            List<SelectListItem>valuewriter=(from x in wm.GetList()
-                                             select new SelectListItem
-                                             {
-                                                 Text=x.WriterName + " " + x.WriterSurname,
-                                                 Value=x.WriterID.ToString()
-                                             }).ToList();
+            List<SelectListItem> valuewriter = (from x in wm.GetList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.WriterName + " " + x.WriterSurname,
+                                                    Value = x.WriterID.ToString()
+                                                }).ToList();
+
+
             ViewBag.vlc = valuecategory;
             ViewBag.vlw = valuewriter;
             return View();
@@ -47,6 +49,22 @@ namespace MvcProjeUI.Controllers
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             hm.HeadingAddBL(heading);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditHeading(int id)
+        {
+
+            List<SelectListItem> valuecategory = (from x in cm.List()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }
+                                               ).ToList();
+            ViewBag.vlc = valuecategory;
+            var headingValue = hm.GetById(id);
+            return View(headingValue);
         }
     }
 }

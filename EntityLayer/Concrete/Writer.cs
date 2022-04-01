@@ -34,6 +34,9 @@ namespace EntityLayer.Concrete
         [StringLength(250)]
         public string WriterImage { get; set; }
 
+        //add-migration mig-writer_addstatus
+        public bool WriterStatus { get; set; }
+
         public ICollection<Content> Contents { get; set; }
         public ICollection<Heading> Headings { get; set; }
 

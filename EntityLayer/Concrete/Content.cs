@@ -17,6 +17,9 @@ namespace EntityLayer.Concrete
         public string ContentValue { get; set; }
         public DateTime ContentDate { get; set; }
 
+        //add-migration mig_contentstatusadd
+        public bool ContentStatus { get; set; }
+
         public int HeadingID { get; set; }
         public virtual Heading Heading { get; set; }
 
