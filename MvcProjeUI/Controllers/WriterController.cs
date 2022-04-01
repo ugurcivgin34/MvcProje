@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Concrete;
+﻿ using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;

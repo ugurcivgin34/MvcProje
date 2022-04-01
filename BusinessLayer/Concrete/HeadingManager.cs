@@ -42,5 +42,12 @@ namespace BusinessLayer.Concrete
         {
             return _headingdal.List();
         }
+
+        public void HeadingDelete(Heading headingValue)
+        {
+          
+
+            _headingdal.Update(headingValue);
+        }
     }
 }

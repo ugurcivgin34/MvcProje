@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         void Delete(Heading heading);
         void HeadingAddBL(Heading heading);
         void HeadingUpdate(Heading heading);
+        void HeadingDelete(Heading heading);
     }
 }
