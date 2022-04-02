@@ -1,1 +1,1 @@
-İşkur Destekli Yazılım Kursu ile beraber derste geliştirilen projedir.Devam etmektedir.
+Yazar,admin ,kullanıcı şeklinde çalışılan bir blog sitesidir.Devam etmektedir
