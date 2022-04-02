@@ -25,22 +25,22 @@ namespace BusinessLayer.Concrete
 
         public void AboutUpdate(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(about);
         }
 
         public void Delete(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(about);
         }
 
         public About GetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.Get(a => a.AboutID == id);
         }
 
         public List<About> List()
         {
-            throw new NotImplementedException();
+            return _aboutDal.List();
         }
     }
 }

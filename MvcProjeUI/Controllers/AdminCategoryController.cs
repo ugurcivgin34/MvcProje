@@ -38,7 +38,7 @@ namespace MvcProjeUI.Controllers
             if (results.IsValid) //Geçerli ise
             {
                 cm.CategoryAddBL(category);
-                return RedirectToAction("GetCategoryList");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -56,7 +56,7 @@ namespace MvcProjeUI.Controllers
         {
             var cetegoryValue = cm.GetById(id);
             cm.Delete(cetegoryValue);
-            return RedirectToAction("GetCategoryList");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -70,7 +70,7 @@ namespace MvcProjeUI.Controllers
         public ActionResult EditCategory(Category category)
         {
             cm.CategoryUpdate(category);
-            return RedirectToAction("GetCategoryList");
+            return RedirectToAction("Index");
         }
     }
 }
