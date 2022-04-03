@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,33 @@ namespace MvcProjeUI.Controllers
         // GET: Message
         public ActionResult Inbox()
         {
-            var messageList = mm.List();
+            var messageList = mm.GetListInbox();
             return View(messageList);
+        }
+
+        public ActionResult GetInBoxMessageDetails(int id)
+        {
+            var values = mm.GetById(id);
+            return View(values);
+        }
+
+        public ActionResult Sendbox()
+        {
+            var messageList = mm.GetListSendbox();
+            return View(messageList);
+        }
+
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewMessage(Message messages)
+        {
+
+            return View();
         }
     }
 }
