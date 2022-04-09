@@ -16,6 +16,8 @@ namespace MvcProjeUI.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         CategoryValidator categoryValidator = new CategoryValidator();
         // GET: AdminCategory
+
+        [Authorize] //Kullanıcı sisteme login olmamkışsa bu sayfayı göremez.
         public ActionResult Index()
         {
             var categoryValues = cm.List();

@@ -53,8 +53,10 @@
   <ItemGroup>
     <Compile Include="Abstarct\IEntity.cs" />
     <Compile Include="Concrete\About.cs" />
+    <Compile Include="Concrete\Admin.cs" />
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Contact.cs" />
+    <Compile Include="Concrete\ImageFile.cs" />
     <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Writer.cs" />
     <Compile Include="Concrete\Content.cs" />
