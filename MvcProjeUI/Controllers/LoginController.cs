@@ -8,6 +8,7 @@ using System.Linq;
 
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcProjeUI.Controllers
 {
@@ -30,6 +31,8 @@ namespace MvcProjeUI.Controllers
             var adminUserInfo = adminManager.GetById(p);
             if (adminUserInfo != null)
             {
+                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName,false);//Kalıcı cooki oluşmasın false yaptık
+                Session["AdminUserName"] = adminUserInfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else

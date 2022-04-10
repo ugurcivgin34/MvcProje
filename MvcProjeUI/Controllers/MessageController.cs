@@ -16,6 +16,7 @@ namespace MvcProjeUI.Controllers
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
         // GET: Message
+        [Authorize]
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();

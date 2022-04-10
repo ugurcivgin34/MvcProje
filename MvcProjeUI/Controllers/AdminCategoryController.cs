@@ -17,7 +17,7 @@ namespace MvcProjeUI.Controllers
         CategoryValidator categoryValidator = new CategoryValidator();
         // GET: AdminCategory
 
-        [Authorize] //Kullanıcı sisteme login olmamkışsa bu sayfayı göremez.
+        [Authorize(Roles ="B")] //Kullanıcı sisteme login olmamkışsa bu sayfayı göremez.
         public ActionResult Index()
         {
             var categoryValues = cm.List();
