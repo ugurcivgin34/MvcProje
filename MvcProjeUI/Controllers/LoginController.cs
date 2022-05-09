@@ -12,6 +12,7 @@ using System.Web.Security;
 
 namespace MvcProjeUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminManager adminManager = new AdminManager(new EfAdminDal());

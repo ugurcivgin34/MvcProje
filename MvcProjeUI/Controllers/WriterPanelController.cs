@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -13,6 +14,8 @@ namespace MvcProjeUI.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        Context c = new Context();
+
 
         // GET: WriterPanel
         public ActionResult WriterProfile()
@@ -20,10 +23,11 @@ namespace MvcProjeUI.Controllers
             return View();
         }
 
-        public ActionResult MyHeading( )
+        public ActionResult MyHeading( string p)
         {
-            //id = 4;
-            var values = hm.ListByWriter();
+            p = (string)Session["WriterMail"];
+            var writerIdInfo=c.Writers.Where(x=>x.WriterEmail==p).Select(y=>y.WriterID).FirstOrDefault();
+            var values = hm.ListByWriter(writerIdInfo);
             return View(values); 
         }
         [HttpGet]
