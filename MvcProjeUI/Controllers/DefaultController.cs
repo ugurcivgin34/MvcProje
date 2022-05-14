@@ -19,9 +19,9 @@ namespace MvcProjeUI.Controllers
             var headingList = hm.List();
             return View(headingList);
         }
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id=0)
         {
-            var contentList = cm.List();
+            var contentList = cm.ListByHeadingID(id);
             return PartialView(contentList);
         }
     }

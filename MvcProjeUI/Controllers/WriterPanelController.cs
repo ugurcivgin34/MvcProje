@@ -91,6 +91,12 @@ namespace MvcProjeUI.Controllers
             return RedirectToAction("MyHeading");
         }
 
+        public ActionResult AllHeading()
+        {
+            var headings = hm.List();
+            return View(headings);
+        }
+
 
     }
 }
