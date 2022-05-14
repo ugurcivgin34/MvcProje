@@ -15,6 +15,7 @@ namespace MvcProjeUI.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         Context c = new Context();
+        int id;
 
 
         // GET: WriterPanel
@@ -27,12 +28,14 @@ namespace MvcProjeUI.Controllers
         {
             p = (string)Session["WriterMail"];
             var writerIdInfo=c.Writers.Where(x=>x.WriterEmail==p).Select(y=>y.WriterID).FirstOrDefault();
+            
             var values = hm.ListByWriter(writerIdInfo);
             return View(values); 
         }
         [HttpGet]
         public ActionResult NewHeading()
         {
+
             List<SelectListItem> valuecategory = (from x in cm.List()
                                                   select new SelectListItem
                                                   {
@@ -47,8 +50,11 @@ namespace MvcProjeUI.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string writerMailInfo = (string)Session["WriterMail"];
+            var writerIdInfo = c.Writers.Where(x => x.WriterEmail == writerMailInfo).Select(y => y.WriterID).FirstOrDefault();
+            ViewBag.d = writerIdInfo;
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterID = 1;
+            heading.WriterID = writerIdInfo;
             heading.HeadingStatus = true;
             hm.HeadingAddBL(heading);
             return RedirectToAction("MyHeading");
