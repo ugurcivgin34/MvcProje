@@ -17,9 +17,9 @@ namespace MvcProjeUI.Controllers
         MessageValidator messageValidator = new MessageValidator();
         // GET: Message
         [Authorize]
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var messageList = mm.GetListInbox();
+            var messageList = mm.GetListInbox(p);
             return View(messageList);
         }
 
@@ -34,9 +34,9 @@ namespace MvcProjeUI.Controllers
             return View(values);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messageList = mm.GetListSendbox();
+            var messageList = mm.GetListSendbox(p);
             return View(messageList);
         }
 

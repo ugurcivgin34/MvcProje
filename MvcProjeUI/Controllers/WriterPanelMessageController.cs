@@ -18,7 +18,8 @@ namespace MvcProjeUI.Controllers
         MessageValidator validationRules = new MessageValidator();
         public ActionResult Inbox()
         {
-            var messageList = mm.GetListInbox();
+            string p = (string)Session["WriterMail"];
+            var messageList = mm.GetListInbox(p);
             return View(messageList);
         }
 
@@ -29,7 +30,8 @@ namespace MvcProjeUI.Controllers
 
         public ActionResult Sendbox()
         {
-            var messageList = mm.GetListSendbox();
+            string p = (string)Session["WriterMail"];
+            var messageList = mm.GetListSendbox(p);
             return View(messageList);
         }
 
@@ -53,11 +55,12 @@ namespace MvcProjeUI.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message messages)
         {
+            string sender = (string)Session["WriterMail"];
 
             ValidationResult results = validationRules.Validate(messages);
             if (results.IsValid)
             {
-                messages.SenderMail = "gizem@hotmail.com";
+                messages.SenderMail = sender;
                 messages.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 mm.MessageAdd(messages);
                 return RedirectToAction("Sendbox");
