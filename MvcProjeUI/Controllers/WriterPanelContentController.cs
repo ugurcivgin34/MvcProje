@@ -25,8 +25,9 @@ namespace MvcProjeUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddContent()
+        public ActionResult AddContent(int id)
         {
+            ViewBag.d=id;
             return View();
         }
 
@@ -40,6 +41,10 @@ namespace MvcProjeUI.Controllers
             p.ContentStatus = true;
             contentManager.ContentAddBL(p);
             return RedirectToAction("MyContent");
+        }
+        public ActionResult ToDoList()
+        {
+            return View();
         }
     }
 }

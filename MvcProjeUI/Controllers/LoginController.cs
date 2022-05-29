@@ -62,5 +62,12 @@ namespace MvcProjeUI.Controllers
                 return RedirectToAction("WriterLogin");
             }
         }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut(); //Oturum sonlandırma
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
+
+        }
     }
 }

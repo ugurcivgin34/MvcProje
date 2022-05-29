@@ -21,5 +21,9 @@ namespace MvcProjeUI.Controllers
             var contentValues = cm.ListByHeadingID(id);
             return View(contentValues);
         }
+        public ActionResult AddContent()
+        {
+            return View();
+        }
     }
 }
