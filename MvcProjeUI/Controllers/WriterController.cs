@@ -16,6 +16,7 @@ namespace MvcProjeUI.Controllers
         WriterManager wm = new WriterManager(new EfWriterDal());
         WriterValidator writerValidator = new WriterValidator();
 
+
         // GET: Writer
         public ActionResult Index()
         {

@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -15,23 +17,53 @@ namespace MvcProjeUI.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
         Context c = new Context();
-        int id;
 
 
         // GET: WriterPanel
-        public ActionResult WriterProfile()
+        [HttpGet]
+
+        public ActionResult WriterProfile(int id)
         {
-            return View();
+            string p = (string)Session["WriterMail"];
+            id = c.Writers.Where(x => x.WriterEmail == p).Select(y => y.WriterID).FirstOrDefault();
+            var writerValue = wm.GetById(id);
+            return View(writerValue);
         }
 
-        public ActionResult MyHeading( string p)
+
+     
+        [HttpPost]
+        public ActionResult WriterProfile(Writer writer)
+        {
+            WriterValidator writerValidator = new WriterValidator();
+            ValidationResult results = writerValidator.Validate(writer);
+            if (results.IsValid)
+            {
+                wm.WriterUpdate(writer);
+                return RedirectToAction("AllHeading","WriterPanel");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+
+        }
+
+
+        public ActionResult MyHeading(string p)
         {
             p = (string)Session["WriterMail"];
-            var writerIdInfo=c.Writers.Where(x=>x.WriterEmail==p).Select(y=>y.WriterID).FirstOrDefault();
-            
+            var writerIdInfo = c.Writers.Where(x => x.WriterEmail == p).Select(y => y.WriterID).FirstOrDefault();
+
             var values = hm.ListByWriter(writerIdInfo);
-            return View(values); 
+            return View(values);
         }
         [HttpGet]
         public ActionResult NewHeading()
@@ -92,9 +124,9 @@ namespace MvcProjeUI.Controllers
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult AllHeading(int p=1) 
+        public ActionResult AllHeading(int p = 1)
         {
-            var headings = hm.List().ToPagedList(p,4); //sayfalama 1 den başlayacak 4 er 4 er yapacak metodu
+            var headings = hm.List().ToPagedList(p, 4); //sayfalama 1 den başlayacak 4 er 4 er yapacak metodu
             return View(headings);
         }
 
@@ -103,7 +135,7 @@ namespace MvcProjeUI.Controllers
 }
 
 //< customErrors mode = "On" >
- 
+
 //       < error statusCode = "404" redirect = "/ErrorPage/Page404/" />
-    
+
 //        </ customErrors >
