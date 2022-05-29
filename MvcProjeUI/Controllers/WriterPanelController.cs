@@ -2,6 +2,7 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,9 +92,9 @@ namespace MvcProjeUI.Controllers
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int p=1) 
         {
-            var headings = hm.List();
+            var headings = hm.List().ToPagedList(p,4); //sayfalama 1 den başlayacak 4 er 4 er yapacak metodu
             return View(headings);
         }
 
